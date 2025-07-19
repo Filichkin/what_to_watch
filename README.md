@@ -1,3 +1,15 @@
+# What to watch - веб-сервис для публикаций мнений о фильмах
+
+<img src="app.png" width="800" height: auto>
+
+
+## Стек технологий
+
+![Flask](https://img.shields.io/badge/Flask-092E20)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-CC3300)
+![Jinja2](https://img.shields.io/badge/Jinja2-%23DCDCDC
+)
+
 ### Как запустить проект:
 
 Клонировать репозиторий и перейти в него в командной строке:
