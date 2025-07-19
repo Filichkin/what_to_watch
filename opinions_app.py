@@ -2,7 +2,13 @@ from datetime import datetime, timezone
 from random import randrange
 import os
 
-from flask import Flask, redirect, render_template, url_for
+from flask import (
+    Flask,
+    flash,
+    redirect,
+    render_template,
+    url_for
+)
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, URLField
@@ -71,9 +77,13 @@ def index_view():
 def add_opinion_view():
     form = OpinionForm()
     if form.validate_on_submit():
+        text = form.text.data
+        if Opinion.query.filter_by(text=text).first() is not None:
+            flash('Такое мнение уже было оставлено ранее!')
+            return render_template('add_opinion.html', form=form)
         opinion = Opinion(
             title=form.title.data,
-            text=form.text.data,
+            text=text,
             source=form.source.data
         )
         db.session.add(opinion)
