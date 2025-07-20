@@ -1,4 +1,0 @@
-FLASK_APP=opinions_app
-FLASK_DEBUG=1
-SECRET_KEY=12345
-DATABASE_URI=sqlite:///db.sqlite3
