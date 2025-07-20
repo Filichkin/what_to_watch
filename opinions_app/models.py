@@ -24,3 +24,13 @@ class Opinion(db.Model):
         default=datetime.now(timezone.utc)
         )
     added_by = db.Column(db.String(64))
+
+    def to_dict(opinion):
+        return dict(
+            id=opinion.id,
+            title=opinion.title,
+            text=opinion.text,
+            source=opinion.source,
+            timestamp=opinion.timestamp,
+            added_by=opinion.added_by
+        )
